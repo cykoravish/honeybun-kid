@@ -11,7 +11,7 @@ export default function ProductCard({ product }: { product: Product }) {
           alt={product.name}
           fill
           sizes="(min-width: 768px) 30vw, 90vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
         />
         {product.compareAtPrice && (
           <span className="absolute left-4 top-4 rounded-full bg-rose px-3 py-1 text-xs font-medium text-white">

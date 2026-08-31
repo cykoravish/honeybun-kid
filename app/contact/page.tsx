@@ -56,7 +56,7 @@ export default function ContactPage() {
             alt="Honeybun Kidswear"
             fill
             sizes="(min-width: 768px) 40vw, 80vw"
-            className="object-cover"
+            className="object-cover object-top"
           />
         </div>
       </div>

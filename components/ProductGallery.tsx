@@ -21,7 +21,7 @@ export default function ProductGallery({
           fill
           priority
           sizes="(min-width: 768px) 45vw, 90vw"
-          className="object-cover"
+          className="object-cover object-top"
         />
       </div>
       {images.length > 1 && (
@@ -36,7 +36,7 @@ export default function ProductGallery({
                 active === i ? "border-ink" : "border-transparent"
               }`}
             >
-              <Image src={src} alt="" fill sizes="64px" className="object-cover" />
+              <Image src={src} alt="" fill sizes="64px" className="object-cover object-top" />
             </button>
           ))}
         </div>

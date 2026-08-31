@@ -45,7 +45,7 @@ export default function Home() {
                 fill
                 priority
                 sizes="(min-width: 768px) 40vw, 80vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-paper px-5 py-2.5 text-sm text-ink shadow-md shadow-black/10 md:left-6 md:translate-x-0">
@@ -143,7 +143,7 @@ export default function Home() {
               alt="Boy wearing the Golden Hour Shacket Set"
               fill
               sizes="(min-width: 768px) 40vw, 80vw"
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
           <div>
