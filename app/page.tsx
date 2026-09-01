@@ -139,7 +139,7 @@ export default function Home() {
         <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
           <div className="arch-frame relative aspect-[4/5] w-full max-w-sm bg-cream md:max-w-none">
             <Image
-              src="/images/product-boy-shacket-main.png"
+              src="/images/product-boy-shacket-main-v2.png"
               alt="Boy wearing the Golden Hour Shacket Set"
               fill
               sizes="(min-width: 768px) 40vw, 80vw"
