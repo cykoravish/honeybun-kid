@@ -70,7 +70,7 @@ export const products: Product[] = [
       "Sold as a matching shacket and trouser set",
     ],
     images: [
-      "/images/product-boy-shacket-main-v2.png",
+      "/images/product-boy-shacket-2.png",
       "/images/product-boy-shacket-2.png",
       "/images/product-boy-shacket-3.png",
       "/images/product-boy-shacket-4.png",
