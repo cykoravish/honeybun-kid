@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { useCart } from "@/lib/cart-context";
+
 const links = [
   { href: "/shop", label: "Shop" },
   { href: "/shop?category=girls", label: "For Her" },
@@ -13,6 +15,7 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { count, open: openCart } = useCart();
 
   return (
     <header className="sticky top-0 z-50 border-b border-cream-deep/70 bg-paper/90 backdrop-blur">
@@ -41,26 +44,46 @@ export default function Header() {
           ))}
         </nav>
 
-        <Link
-          href="/shop"
-          className="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-rose-deep md:inline-block"
-        >
-          Shop the collection
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/shop"
+            className="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-rose-deep md:inline-block"
+          >
+            Shop the collection
+          </Link>
 
-        <button
-          className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span
-            className={`h-[1.5px] w-6 bg-ink transition-transform duration-300 ease-out ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
-          />
-          <span
-            className={`h-[1.5px] w-6 bg-ink transition-transform duration-300 ease-out ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
-          />
-        </button>
+          <button
+            onClick={openCart}
+            aria-label={`Open cart${count > 0 ? `, ${count} item${count === 1 ? "" : "s"}` : ""}`}
+            className="relative flex h-9 w-9 items-center justify-center rounded-full text-ink transition-colors hover:bg-cream"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5">
+              <path d="M6 6h15l-1.5 9h-12z" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M6 6 5 3H2" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="9" cy="20" r="1.4" />
+              <circle cx="18" cy="20" r="1.4" />
+            </svg>
+            {count > 0 && (
+              <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-deep px-1 text-[10px] font-medium text-white">
+                {count}
+              </span>
+            )}
+          </button>
+
+          <button
+            className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span
+              className={`h-[1.5px] w-6 bg-ink transition-transform duration-300 ease-out ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
+            />
+            <span
+              className={`h-[1.5px] w-6 bg-ink transition-transform duration-300 ease-out ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
+            />
+          </button>
+        </div>
       </div>
 
       <div
