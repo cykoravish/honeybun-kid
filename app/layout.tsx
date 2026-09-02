@@ -11,6 +11,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import CartDrawer from "@/components/CartDrawer";
+import { CartProvider } from "@/lib/cart-context";
 
 export const metadata: Metadata = {
   title: "Honeybun Kidswear — Sweet Little Outfits for Your Little Honey",
@@ -22,10 +24,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-paper text-ink font-sans">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppFab />
+        <CartProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <WhatsAppFab />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

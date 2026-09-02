@@ -68,7 +68,13 @@ export default async function ProductPage({
           </ul>
 
           <div className="mt-8 border-t border-cream-deep pt-8">
-            <OrderPanel productName={product.name} sizes={product.sizes} />
+            <OrderPanel
+              slug={product.slug}
+              productName={product.name}
+              price={product.price}
+              image={product.images[0]}
+              sizes={product.sizes}
+            />
           </div>
         </div>
       </div>
